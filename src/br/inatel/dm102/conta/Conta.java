@@ -50,7 +50,8 @@ public abstract class Conta
 	
 	public void gerarExtrato() 
 	{
-		System.out.println("Cliente" + cliente + "Saldo: " + saldo);
+		System.out.println("Cliente:" + cliente + "Saldo Atual: " + saldo);
+		movimentacoes.forEach(Movimentacao::mostrarTransacao);
 	}
 	
 	public float getSaldo()

@@ -18,9 +18,10 @@ public class Movimentacao
 		return data;
 	}
 
-	public void setData(Date data) 
+	public Movimentacao withData(Date data) 
 	{
 		this.data = data;
+		return this;
 	}
 
 	public String getDescricao() 
@@ -28,9 +29,10 @@ public class Movimentacao
 		return descricao;
 	}
 
-	public void setDescricao(String descricao) 
+	public Movimentacao withDescricao(String descricao) 
 	{
 		this.descricao = descricao;
+		return this;
 	}
 
 	public float getValor() 
@@ -38,8 +40,9 @@ public class Movimentacao
 		return valor;
 	}
 
-	public void setValor(float valor) 
+	public Movimentacao withValor(float valor) 
 	{
 		this.valor = valor;
+		return this;
 	}
 }

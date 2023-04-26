@@ -1,5 +1,7 @@
 package br.inatel.dm102.conta;
 
+import java.util.Date;
+
 public class Poupanca extends Conta
 {
 	private float taxaJuros = 13;
@@ -7,6 +9,13 @@ public class Poupanca extends Conta
 	@Override
 	public void atualizarSaldo() 
 	{
-		depositar(getSaldo() * taxaJuros);
+		float valor = getSaldo() * taxaJuros;
+		depositar(valor);
+		
+		Movimentacao movimentacao = new Movimentacao()
+				.withData(new Date())
+				.withDescricao("Atualizar saldo")
+				.withValor(valor);
+		movimentacoes.add(movimentacao);
 	}
 }

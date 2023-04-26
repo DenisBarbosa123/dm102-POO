@@ -1,5 +1,7 @@
 package br.inatel.dm102.conta;
 
+import java.util.Date;
+
 public class Corrente extends Conta
 {
 	private float taxaManutencao = 2;
@@ -8,6 +10,13 @@ public class Corrente extends Conta
 	public void atualizarSaldo() 
 	{
 		float saldo = getSaldo();
-		sacar(saldo - (saldo * taxaManutencao));
+		float valor = saldo - (saldo * taxaManutencao);
+		sacar(valor);
+		
+		Movimentacao movimentacao = new Movimentacao()
+				.withData(new Date())
+				.withDescricao("Atualizar saldo")
+				.withValor(valor);
+		movimentacoes.add(movimentacao);
 	}
 }

@@ -9,14 +9,14 @@ import br.inatel.dm102.cliente.Cliente;
 
 public abstract class Conta 
 {
-	private float saldo = 0;
+	private double saldo = 0;
 	protected String codigoConta = UUID.randomUUID().toString();
 	protected List<Movimentacao> movimentacoes = new ArrayList<>();
 	protected Cliente cliente;
 	
-	public void sacar(float valor) 
+	public void sacar(double valor) 
 	{
-		if (valor > saldo) 
+		if (valor <= saldo) 
 		{
 			saldo = saldo - valor;
 			
@@ -37,7 +37,7 @@ public abstract class Conta
 		this.cliente = cliente;
 	}
 
-	public void depositar(float valor)
+	public void depositar(double valor)
 	{	
 		saldo = saldo + valor;
 		
@@ -54,7 +54,7 @@ public abstract class Conta
 		movimentacoes.forEach(Movimentacao::mostrarTransacao);
 	}
 	
-	public float getSaldo()
+	protected double getSaldo()
 	{
 		return saldo;
 	}

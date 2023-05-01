@@ -6,7 +6,7 @@ public class Movimentacao
 {
 	private Date data;
 	private String descricao;
-	private float valor;
+	private double valor;
 	
 	public void mostrarTransacao()
 	{
@@ -35,12 +35,12 @@ public class Movimentacao
 		return this;
 	}
 
-	public float getValor() 
+	public double getValor() 
 	{
 		return valor;
 	}
 
-	public Movimentacao withValor(float valor) 
+	public Movimentacao withValor(double valor) 
 	{
 		this.valor = valor;
 		return this;

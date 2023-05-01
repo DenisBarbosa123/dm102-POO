@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class Corrente extends Conta
 {
-	private float taxaManutencao = 2;
+	private double taxaManutencao = 0.2;
 	
 	@Override
 	public void atualizarSaldo() 
 	{
-		float saldo = getSaldo();
-		float valor = saldo - (saldo * taxaManutencao);
+		double saldo = getSaldo();
+		double valor = saldo * taxaManutencao;
 		sacar(valor);
 		
 		Movimentacao movimentacao = new Movimentacao()

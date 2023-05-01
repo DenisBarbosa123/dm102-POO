@@ -4,6 +4,9 @@ import br.inatel.dm102.cliente.PessoaFisica;
 import br.inatel.dm102.cliente.PessoaJuridica;
 import br.inatel.dm102.common.Contato;
 import br.inatel.dm102.common.Endereco;
+import br.inatel.dm102.conta.Corrente;
+import br.inatel.dm102.conta.Gerente;
+import br.inatel.dm102.conta.Poupanca;
 
 public class Main 
 {
@@ -50,6 +53,34 @@ public class Main
 		pj.setEndereco(enderecoPJ);
 		pj.setContato(contatoPJ);
 		pj.listarClienteInfo();
-	}
+		
+		System.out.println("-------------------------------------------------------------------------------");
 
+		Corrente corrente = new Corrente();
+		corrente.setCliente(pj);
+		corrente.gerarExtrato();
+		corrente.depositar(10);
+		corrente.gerarExtrato();
+		corrente.sacar(5);
+		corrente.gerarExtrato();
+		
+		System.out.println("-------------------------------------------------------------------------------");
+		
+		Poupanca poupanca = new Poupanca();
+		poupanca.setCliente(pf);
+		poupanca.gerarExtrato();
+		poupanca.depositar(50);
+		poupanca.gerarExtrato();
+		poupanca.sacar(10);
+		poupanca.gerarExtrato();
+		
+		System.out.println("-------------------------------------------------------------------------------");
+
+		Gerente gerente = new Gerente();
+		gerente.addConta(poupanca);
+		gerente.addConta(corrente);
+		gerente.atualizarContas();
+		corrente.gerarExtrato();
+		poupanca.gerarExtrato();
+	}
 }

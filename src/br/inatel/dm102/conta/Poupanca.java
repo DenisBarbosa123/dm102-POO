@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class Poupanca extends Conta
 {
-	private float taxaJuros = 13;
+	private double taxaJuros = 0.13;
 
 	@Override
 	public void atualizarSaldo() 
 	{
-		float valor = getSaldo() * taxaJuros;
+		double valor = getSaldo() * taxaJuros;
 		depositar(valor);
 		
 		Movimentacao movimentacao = new Movimentacao()
